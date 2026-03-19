@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniFigure Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .store-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #6c63ff;
+        }
+
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: url("https://www.shutterstock.com/image-photo/various-figurines-anime-manga-characters-600nw-2639769475.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+        }
+
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            margin: 20px 0;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            background: white;
+            color: #6c63ff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #222;
+            color: white;
+        }
+
+        .container {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .card h4 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .detail {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .og {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .span {
+            text-decoration: line-through;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 8px 0 15px;
+            color: #e63946;
+        }
+
+        .sale {
+            color: #111;
+        }
+
+        .cart-btn {
+            padding: 10px 22px;
+            border-radius: 25px;
+            border: none;
+            background: #6c63ff;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: #4a47a3;
+        }
+
+        .aboutme {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input,
+        form textarea {
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #6c63ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: white;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .container {
+                padding: 80px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="https://www.shutterstock.com/shutterstock/videos/3791912467/thumb/1.jpg?ip=x480" class="logo-link">
+
+                <span class="store-name">AniFigure</span>
+            </a>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#product">Figures</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+
+            <h1>Epic Anime Collectibles</h1>
+            <p>Premium action figures for true anime fans !!</p>
+            <a href="#product" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="product" class="container">
+        <h4 class="section-title">Featured Action Figures</h4>
+        <div class="grid">
+
+            <div class="grid">
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGuLg3MNqXpqNlszDWh5Hm5VJNvbBxDCx57Q&s"
+                        alt="Naruto Uzumaki Figure">
+
+                    <h4>Naruto Uzumaki</h4>
+                    <p class="detail">PVC | 10\" tall | Naruto Shippuden</p>
+                    <p class="og">Original price : <span class="span"> $139</span></p>
+                    <p class="price"><span class="sale">Sale :</span>$69</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://collectopia.in/cdn/shop/files/35_2fd2a275-3944-4220-88a0-25608dc74ef9.jpg?v=1720466040&width=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"
+                        alt="Goku Super Saiyan">
+                    <h4>Goku Super Saiyan</h4>
+                    <p class="detail">LED base | Heavy PVC | 11\" tall</p>
+                    <p class="og">Original price : <span class="span"> $159</span></p>
+                    <p class="price"><span class="sale">Sale :</span>$79</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://images-cdn.ubuy.co.in/635403bdc7e8312c0e3bce66-one-piece-figure-monkey-d-luffy.jpg"
+                        alt="Monkey D. Luffy">
+                    <h4>Monkey D. Luffy</h4>
+                    <p class="detail">Action pose | Highly detailed</p>
+                    <p class="og">Original price : <span class="span"> $129</span></p>
+                    <p class="price"><span class="sale">Sale :</span>$59</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT016SQ-6_6GfkQwG40bO6_vmi91S8Kd760dQ&s"
+                        alt="Itachi Uchiha">
+                    <h4>Itachi Uchiha</h4>
+                    <p class="detail">PVC | Akatsuki design | 9.5\"</p>
+                    <p class="og">Original price : <span class="span"> $149</span></p>
+                    <p class="price"><span class="sale">Sale :</span>$79</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMGI-kCmuL_nqe2jllYPe6Dd0R6L8c6WeuZA&s"
+                        alt=" Deku">
+                    <h4>Deku (My Hero Academia)</h4>
+                    <p class="detail">Dynamic pose | Perfect for shelf displays</p>
+                    <p class="og">Original price : <span class="span"> $139</span></p>
+                    <p class="price"><span class="sale">Sale :</span>$69</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.masioriginals.com/cdn/shop/files/13_dcc13806-78a2-4d96-a53a-0fcaa58e6789.jpg?v=1718959274&width=194"
+                        alt="Levi Ackerman Figure">
+
+                    <h4>Levi Ackerman</h4>
+                    <p class="detail">Survey Corps cape | Highly detailed</p>
+                    <p class="og">Original price : <span class="span"> $169</span></p>
+                    <p class="price"><span class="sale">Sale :</span>$89</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h4 class="section-title">About Us</h4>
+        <p class="aboutme">
+            AniFigure is your go-to anime collectibles store! We carry exclusive, licensed, and high-quality action
+            figures
+            from top anime franchises — from Naruto, Attack on Titan, Dragon Ball, One Piece, and more. Created for fans
+            and collectors who want the best!
+        </p>
+    </section>
+
+    <section id="contact" class="container">
+        <h4 class="section-title">Contact Us</h4>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button class="btn" type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p> ©️ 2026 AniFigure Store. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
