@@ -2,13 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DOM Example</title>
+    <title>JavaScript DOM Lab</title>
+
+    <style>
+        body {
+            background-color: #3f6f7a;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 
-    <h1 id="title">DOM Manipulation is JS </h1>
-    <button id="btn">Click Me</button>
-    <h1></h1>
+    <h1 id="mainHeading">Welcome to JavaScript Lab</h1>
+
+    <p id="paragraph">This is a sample paragraph for DOM manipulation.</p>
+
+    <input type="text" id="userInput" placeholder="Enter new heading text">
+
+    <br>
+
+    <button id="changeTextBtn">Change Heading Text</button>
+    <button id="bgColorBtn">Change Background Color</button>
+    <button id="fontSizeBtn">Increase Font Size</button>
+    <button id="toggleBtn">Show/Hide Paragraph</button>
+    <button id="resetBtn">Reset</button>
 
     <script src="dom.js"></script>
 
