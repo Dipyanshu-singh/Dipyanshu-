@@ -1,3 +1,4 @@
+
 let heading = document.getElementById("heading");
 let input = document.getElementById("inputText");
 let para = document.getElementById("para");
